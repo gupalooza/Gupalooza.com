@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Boogaloo&display=swap');
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+font-family: 'boogaloo', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+color: chocolate;
+line-height: 1.6;
+background-image: url(./asset/background2.png);
+background-size: cover;
+overflow-x: hidden;
+}
+
+/* navbar */
+nav {
+    display: flex;
+    background-color: rgb(53, 23, 2);
+    justify-content: space-evenly;
+    padding: 20px 20px;
+    color: rgb(163, 68, 0);
+    height: 75px;
+    align-items: center;
+}
+
+.logo {
+    width: 80%;
+    padding-top: 15px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    width: 40%;
+    justify-content: space-evenly;
+}
+
+nav ul li a {
+    color: rgb(163, 68, 0);
+    text-decoration: none;
+    font-family: 'boogaloo', cursive;
+    font-size: 1.5em;
+}
+
+nav ul li a:hover {
+color: rgb(226, 167, 124);
+}
+
+/* hamburger menu */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    height: 20px;
+    justify-content: space-around;
+    align-items: flex-end;  
+    position: relative;
+}
+
+.menu-toggle input {
+    position: absolute;
+    width: 40px;
+    height: 28px;
+    left: -6px;
+    top: -3px;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background-color: rgb(163, 68, 0);
+    border-radius: 3px;
+    transition: all 0.5s;
+}
+
+/* hamburger menu animation */
+.menu-toggle span:nth-child(2) {
+    transform-origin: 0 0;
+}
+
+.menu-toggle span:nth-child(4) {
+    transform-origin: 0 100%;
+}
+
+.menu-toggle input:checked ~ span:nth-child(2) {
+    background-color: rgb(226, 167, 124);
+    transform: rotate(45deg) translate(-2px, -3px);
+}
+
+.menu-toggle input:checked ~ span:nth-child(4) {
+    background-color: rgb(226, 167, 124);
+    transform: rotate(-45deg) translate(-1px, 0);
+}
+
+.menu-toggle input:checked ~ span:nth-child(3) {
+    transform: scale(0);
+}
+
+/* main content */
+/* about */
+.about{
+    width: 90vw;
+    margin:20px auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: 
+    'hero hero hero'
+    'item item wallet'
+    'item item wallet'
+    'slides slides slides';
+}
+
+.hero{
+    grid-area: hero;
+    background-color: blanchedalmond;
+    width: 100%;
+    height: 50vw;
+    opacity: 20%;
+}
+
+.item{
+    grid-area: item;
+    justify-content: left;
+    align-items: center;
+}
+
+h1{
+    text-align: center;
+}
+
+p{
+    text-align: justify;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 20px;
+}
+
+.container-wallet{
+    grid-area: wallet;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;    
+}
+
+.btn-1{
+    width: 70%;
+    height: 30%;
+    border: none;
+    background-color: chocolate;
+    color: rgb(255, 247, 132);
+    font-size: 2rem;
+    font-family: 'boogaloo', cursive;
+    border-radius: 6px;
+}
+
+.btn-1:hover{
+    background-color: rgb(255, 247, 132);
+    color:rgb(163, 68, 0);
+    transition: ease-in 0.3s;
+}
+
+.slides{
+    grid-area: slides;
+    width: 150%;
+    justify-content: center;
+}
+
+/* responsive breakpoint */
+/* for tablet */
+@media screen and (max-width: 768px) {
+    nav ul {
+        width: 80%;
+    }
+}
+
+/* for mobile */
+@media screen and (max-width: 576px) {
+    .menu-toggle {
+        display: flex;
+    }
+    nav ul {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 60%;
+        height: 100vh;
+        justify-content: space-evenly;
+        flex-direction: column;
+        align-items: center;
+        background-color: rgb(53, 23, 2);
+        z-index: -1;
+        transform: translateX(100%);
+        transition: ease-out all 1s;
+    }
+
+    nav ul.slide {
+        transform: translateX(0);
+    }
+}
+
